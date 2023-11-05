@@ -1,21 +1,20 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { Link, NavLink } from "react-router-dom";
 
 function Nav() {
   return (
     <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com">
-        <img
-          src="/favicon.svg"
-          className="mr-3 h-6 sm:h-9"
-          alt="Flowbite React Logo"
-        />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Flowbite React
-        </span>
+      <Navbar.Brand>
+        <Link to="/" className="flex items-center">
+          <img src="/favicon.png" className="mr-3 h-6 sm:h-9" alt="RideRelay" />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            RideRelay
+          </span>
+        </Link>
       </Navbar.Brand>
       <div className="flex md:order-2">
         <Dropdown
-          arrowIcon={false}
+          arrowIcon={true}
           inline
           label={
             <Avatar
@@ -26,27 +25,48 @@ function Nav() {
           }
         >
           <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
+            <span className="block text-sm">Saidul Mursalin</span>
             <span className="block truncate text-sm font-medium">
-              name@flowbite.com
+              monir@gmail.com
             </span>
           </Dropdown.Header>
           <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item>Sign Out</Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
-          Home
+        <Navbar.Link>
+          <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Home
+          </NavLink>
         </Navbar.Link>
-        <Navbar.Link href="">About</Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
+        <Navbar.Link>
+          <NavLink
+            to="/services"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Services
+          </NavLink>
+        </Navbar.Link>
+        <Navbar.Link>
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Login
+          </NavLink>
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
