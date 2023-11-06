@@ -9,7 +9,7 @@ import Service from "../pages/Service/Service";
 import Schedules from "../pages/Schedules/Schedules";
 import MyServices from "../pages/MyServices/MyServices";
 import AddService from "../pages/AddService/AddService";
-import UpdateService from "../pages/UpdateService";
+import UpdateService from "../pages/UpdateService/UpdateService";
 
 export const routes = createBrowserRouter([
   {
@@ -48,6 +48,8 @@ export const routes = createBrowserRouter([
       {
         path: "/updateService/:id",
         element: <UpdateService />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/v1/services/${params.id}`),
       },
       {
         path: "/shcedules",
