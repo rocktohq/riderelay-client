@@ -10,9 +10,9 @@ body {
 }
 /* Active Class */
 .active {
-  @apply text-green-500;
+  @apply text-purple-600;
 }
 
 .active:hover {
-  @apply text-green-900;
+  @apply text-purple-800;
 }

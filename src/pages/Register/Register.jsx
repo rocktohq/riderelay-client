@@ -4,6 +4,8 @@ import registerAnimation from "../../assets/animations/register.json";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { HiUserAdd } from "react-icons/hi";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Register = () => {
   const { signUpUser, updateUserProfile } = useAuth();
@@ -77,82 +79,91 @@ const Register = () => {
     }
   };
   return (
-    <div className="bg-gray-50 py-16">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex justify-center gap-10">
-          <Card className="max-w-md w-full">
-            <form onSubmit={handleRegistration} className="flex flex-col gap-4">
-              <h3 className="text-2xl font-bold text-gray-900 text-center">
-                User Registration
-              </h3>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="name" value="Full Name" />
+    <HelmetProvider>
+      <Helmet>
+        <title>RideRelay | Register</title>
+      </Helmet>
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="flex justify-center gap-10">
+            <Card className="max-w-md w-full">
+              <form
+                onSubmit={handleRegistration}
+                className="flex flex-col gap-4"
+              >
+                <h3 className="text-2xl font-bold text-gray-900 text-center">
+                  User Registration
+                </h3>
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="name" value="Full Name" />
+                  </div>
+                  <TextInput
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Full Name"
+                  />
                 </div>
-                <TextInput
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Full Name"
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="photo" value="Photo URL" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="photo" value="Photo URL" />
+                  </div>
+                  <TextInput
+                    id="photo"
+                    name="photo"
+                    type="text"
+                    placeholder="Photo URL"
+                  />
                 </div>
-                <TextInput
-                  id="photo"
-                  name="photo"
-                  type="text"
-                  placeholder="Photo URL"
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="email" value="Email" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="email" value="Email" />
+                  </div>
+                  <TextInput
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="example@example.com"
+                  />
                 </div>
-                <TextInput
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="example@example.com"
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="password" value="Password" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="password" value="Password" />
+                  </div>
+                  <TextInput
+                    name="password"
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                  />
                 </div>
-                <TextInput
-                  name="password"
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                />
+                <Button type="submit" color="purple" className="font-bold">
+                  <HiUserAdd />
+                  &nbsp;<span>Register</span>
+                </Button>
+              </form>
+              <div className="mt-3">
+                <p>
+                  &#187; Already registered?{" "}
+                  <Link to="/login">
+                    <span className="text-green-500">Login here.</span>
+                  </Link>
+                </p>
               </div>
-              <Button type="submit" color="purple" className="font-bold">
-                Register
-              </Button>
-            </form>
-            <div className="mt-3">
-              <p>
-                &#187; Already registered?{" "}
-                <Link to="/login">
-                  <span className="text-green-500">Login here.</span>
-                </Link>
-              </p>
+            </Card>
+            <div className="hidden md:flex w-full max-w-md">
+              <Lottie
+                animationData={registerAnimation}
+                loop={false}
+                className="object-contain"
+              />
+              ;
             </div>
-          </Card>
-          <div className="hidden md:flex w-full max-w-md">
-            <Lottie
-              animationData={registerAnimation}
-              loop={false}
-              className="object-contain"
-            />
-            ;
           </div>
         </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 

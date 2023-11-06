@@ -38,7 +38,7 @@ export const routes = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/myServices",
+        path: "/manageService",
         element: <MyServices />,
       },
       {
@@ -46,7 +46,7 @@ export const routes = createBrowserRouter([
         element: <AddService />,
       },
       {
-        path: "/updateService",
+        path: "/updateService/:id",
         element: <UpdateService />,
       },
       {

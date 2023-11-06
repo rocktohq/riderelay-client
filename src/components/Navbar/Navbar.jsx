@@ -1,6 +1,12 @@
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import {
+  AiOutlineAppstoreAdd,
+  AiOutlineSetting,
+  AiOutlineSchedule,
+} from "react-icons/ai";
+import { BiLogOutCircle, BiLogInCircle } from "react-icons/bi";
 
 function Nav() {
   const { user, signOutUser } = useAuth();
@@ -12,32 +18,42 @@ function Nav() {
   return (
     <Navbar fluid rounded>
       <Link to="/" className="flex items-center">
-        <img src="/favicon.png" className="mr-3 h-6 sm:h-9" alt="RideRelay" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          RideRelay
+        <img src="/favicon.png" className="mr-3 h-6 md:h-9" alt="RideRelay" />
+        <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+          Ride<span className="text-purple-600">Relay</span>
         </span>
       </Link>
       <div className="flex md:order-2">
         {user?.email ? (
-          <Dropdown
-            arrowIcon={true}
-            inline
-            label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">{user?.displayName}</span>
-              <span className="block truncate text-sm font-medium">
-                {user?.email}
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={handleLogout}>Sign Out</Dropdown.Item>
-          </Dropdown>
+          <div className="flex items-center gap-1">
+            <span className="hidden md:flex">{user?.displayName}</span>
+            <Dropdown
+              arrowIcon={true}
+              inline
+              label={
+                <Avatar alt="User settings" img={user?.photoURL} rounded />
+              }
+            >
+              <Dropdown.Header>
+                <span className="block text-lg">{user?.displayName}</span>
+                <span className="block truncate text-sm font-medium">
+                  {user?.email}
+                </span>
+              </Dropdown.Header>
+              <Dropdown.Item icon={AiOutlineSchedule}>
+                <Link to="/shcedules">My Shcedules</Link>
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={handleLogout} icon={BiLogOutCircle}>
+                Sign Out
+              </Dropdown.Item>
+            </Dropdown>
+          </div>
         ) : (
           <Link to="/login">
-            <Button color="purple" className="rounded">
-              Login
+            <Button color="purple" className="rounded font-bold">
+              <BiLogInCircle />
+              &nbsp;<span>Login</span>
             </Button>
           </Link>
         )}
@@ -47,10 +63,24 @@ function Nav() {
         <NavLink to="/" className="text-lg pb-1 border-b lg:border-none">
           Home
         </NavLink>
-
+        {user?.email && (
+          <div className="text-lg">
+            <Dropdown arrowIcon={true} label="Dashboard" inline>
+              <Dropdown.Item icon={AiOutlineAppstoreAdd}>
+                <NavLink to="/addService">Add Service</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item icon={AiOutlineSetting}>
+                <NavLink to="/manageService">Manage Service</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item icon={AiOutlineSchedule}>
+                <NavLink to="/shcedules">My Shcedules</NavLink>
+              </Dropdown.Item>
+            </Dropdown>
+          </div>
+        )}
         <NavLink
           to="/services"
-          className="text-lg pb-1 border-b lg:border-none"
+          className="text-lg pb-1 border-b lg:border-none hover:text-purple-700"
         >
           Services
         </NavLink>
