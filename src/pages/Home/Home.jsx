@@ -1,7 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Banner from "../../components/Banner/Banner";
 import { useQuery } from "@tanstack/react-query";
-// import axios from "../../hooks/useAxios";
 import Loader from "../../components/Loader/Loader";
 import ServiceCard from "./ServiceCard";
 import toast from "react-hot-toast";
@@ -29,8 +28,15 @@ const Home = () => {
     },
   });
 
+  // If data is not Loaded yet
   if (isPending) return <Loader />;
-  if (isError) return toast.error(error);
+  
+  // If any error is encountered
+  if (isError) {
+    toast.error("Something went wrong");
+    console.log(error);
+    return;
+  }
   return (
     <HelmetProvider>
       <Helmet>
