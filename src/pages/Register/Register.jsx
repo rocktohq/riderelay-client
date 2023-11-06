@@ -63,9 +63,9 @@ const Register = () => {
       return toast.error("Password must have a special character!");
     }
 
+    //* Register User
     // Loading
     const toastId = toast.loading("Registering user...");
-    //* Register User
     try {
       await signUpUser(email, password);
       await updateUserProfile(name, photo);

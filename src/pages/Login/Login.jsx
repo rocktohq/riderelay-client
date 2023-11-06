@@ -50,6 +50,7 @@ const Login = () => {
     }
 
     //* User Login
+    // Loading
     const toastId = toast.loading("Logging in...");
     try {
       await signInUser(email, password);
