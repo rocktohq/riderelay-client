@@ -30,7 +30,7 @@ const Home = () => {
 
   // If data is not Loaded yet
   if (isPending) return <Loader />;
-  
+
   // If any error is encountered
   if (isError) {
     toast.error("Something went wrong");
