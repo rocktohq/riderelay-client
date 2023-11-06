@@ -23,12 +23,50 @@ const Login = () => {
     }
   };
 
+  //* Handle User Login
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    // Data from User Input
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    //* Validate Inputs
+    if (email === "" && password === "") {
+      return toast.error("All fields are required!");
+    }
+    // If email field is empty
+    else if (email === "") {
+      return toast.error("Please provide your email!");
+    }
+    // If email field is not valid
+    else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      return toast.error("Please provide an valid email!");
+    }
+    // If password field is empty
+    else if (password === "") {
+      return toast.error("Password is required!");
+    }
+
+    //* User Login
+    const toastId = toast.loading("Logging in...");
+    try {
+      await signInUser(email, password);
+      toast.success("Login successful", { id: toastId });
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message, { id: toastId });
+      console.error(error.message);
+    }
+  };
+
   return (
     <div className="bg-gray-50 py-16">
       <div className="max-w-screen-xl mx-auto">
         <div className="flex justify-center gap-10">
           <Card className="max-w-md w-full">
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleLogin} className="flex flex-col gap-4">
               <h3 className="text-2xl font-bold text-gray-900 text-center">
                 User Login
               </h3>
@@ -41,7 +79,6 @@ const Login = () => {
                   name="email"
                   type="email"
                   placeholder="example@example.com"
-                  required
                 />
               </div>
               <div>
@@ -53,7 +90,6 @@ const Login = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
-                  required
                 />
               </div>
               <Button type="submit" color="purple" className="font-bold">

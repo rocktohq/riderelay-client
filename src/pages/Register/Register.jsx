@@ -24,7 +24,6 @@ const Register = () => {
     if (name === "" && photo === "" && email === "" && password === "") {
       return toast.error("All fields are required!");
     }
-
     // If name field is empty
     else if (name === "") {
       return toast.error("Please provide your name!");
