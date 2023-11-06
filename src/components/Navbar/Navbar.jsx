@@ -4,6 +4,8 @@ import useAuth from "../../hooks/useAuth";
 
 function Nav() {
   const { user, signOutUser } = useAuth();
+
+  // * Logout User
   const handleLogout = () => {
     signOutUser();
   };
@@ -20,13 +22,7 @@ function Nav() {
           <Dropdown
             arrowIcon={true}
             inline
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded
-              />
-            }
+            label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
           >
             <Dropdown.Header>
               <span className="block text-sm">{user?.displayName}</span>

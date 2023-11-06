@@ -1,10 +1,28 @@
 import { Button, Card, Label, TextInput } from "flowbite-react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/animations/login.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { googleSignIn, signInUser } = useAuth();
+  const navigate = useNavigate();
+
+  //* Google Login
+  const handleGoogleLogin = async () => {
+    const toastId = toast.loading("Logging in...");
+    try {
+      await googleSignIn();
+      toast.success("Login successful", { id: toastId });
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message, { id: toastId });
+      console.error(error.message);
+    }
+  };
+
   return (
     <div className="bg-gray-50 py-16">
       <div className="max-w-screen-xl mx-auto">
@@ -52,7 +70,12 @@ const Login = () => {
             </div>
             <div>
               <h3 className="text-center mb-3">OR</h3>
-              <Button outline color="purple" className="w-full">
+              <Button
+                onClick={handleGoogleLogin}
+                outline
+                color="purple"
+                className="w-full"
+              >
                 <BsGoogle />{" "}
                 <span className="ml-1 font-bold">Login with Google</span>
               </Button>
