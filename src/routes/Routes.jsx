@@ -10,6 +10,7 @@ import Schedules from "../pages/Schedules/Schedules";
 import MyServices from "../pages/MyServices/MyServices";
 import AddService from "../pages/AddService/AddService";
 import UpdateService from "../pages/UpdateService/UpdateService";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "services/:id",
-        element: <Service />,
+        element: (
+          <PrivateRoute>
+            <Service />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -39,21 +44,37 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/manageService",
-        element: <MyServices />,
+        element: (
+          <PrivateRoute>
+            <MyServices />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addService",
-        element: <AddService />,
+        element: (
+          <PrivateRoute>
+            <AddService />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateService/:id",
-        element: <UpdateService />,
+        element: (
+          <PrivateRoute>
+            <UpdateService />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/v1/services/${params.id}`),
       },
       {
         path: "/shcedules",
-        element: <Schedules />,
+        element: (
+          <PrivateRoute>
+            <Schedules />
+          </PrivateRoute>
+        ),
       },
     ],
   },

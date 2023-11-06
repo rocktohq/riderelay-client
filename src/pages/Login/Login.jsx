@@ -1,7 +1,7 @@
 import { Button, Card, Label, TextInput } from "flowbite-react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/animations/login.json";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -11,6 +11,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 const Login = () => {
   const { googleSignIn, signInUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   //* Google Login
   const handleGoogleLogin = async () => {
@@ -18,7 +19,11 @@ const Login = () => {
     try {
       await googleSignIn();
       toast.success("Login successful", { id: toastId });
-      navigate("/");
+      if (location?.state) {
+        navigate(`${location.state}`);
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       toast.error(error.message, { id: toastId });
       console.error(error.message);
@@ -57,7 +62,11 @@ const Login = () => {
     try {
       await signInUser(email, password);
       toast.success("Login successful", { id: toastId });
-      navigate("/");
+      if (location?.state) {
+        navigate(`${location.state}`);
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       toast.error(error.message, { id: toastId });
       console.error(error.message);
