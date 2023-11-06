@@ -6,6 +6,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useState } from "react";
 import SCard from "./SCard";
 import { Button } from "flowbite-react";
+import Title from "../../components/shared/Title";
 
 const Services = () => {
   const axios = useAxios();
@@ -41,7 +42,8 @@ const Services = () => {
         <title>RideRelay | Services</title>
       </Helmet>
       <main>
-        <section className="max-w-screen-xl mx-auto px-3">
+        <section className="max-w-screen-xl mx-auto px-3 my-16">
+          <Title className="my-5">Our Services</Title>
           {services && (
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-5">
               {services.slice(0, showData).map((service) => (
@@ -52,9 +54,7 @@ const Services = () => {
           <div>
             {services && services.length > 6 && (
               <div
-                className={`mt-10 ${
-                  showData >= services.length && "hidden"
-                }`}
+                className={`mt-10 ${showData >= services.length && "hidden"}`}
               >
                 <Button
                   color="purple"
