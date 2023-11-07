@@ -82,7 +82,7 @@ const AuthProvider = ({ children }) => {
         unSubscribe();
       };
     });
-  }, []);
+  }, [user?.email]);
 
   // Auth Info
   const authInfo = {

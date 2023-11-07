@@ -12,6 +12,7 @@ import Partners from "./Partners";
 import Owner from "./Owner";
 import Download from "./Download";
 import useAxios from "../../hooks/useAxios";
+import Location from "./Location";
 
 const Home = () => {
   const axios = useAxios();
@@ -98,6 +99,14 @@ const Home = () => {
         <section className="my-16 py-5 bg-gray-100">
           <div className="max-w-screen-xl mx-auto px-3">
             <Download />
+          </div>
+        </section>
+
+        {/* Contact Us */}
+        <section className="my-16 py-5">
+          <div className="max-w-screen-xl mx-auto px-3">
+            <Title className="my-5">Contact Us</Title>
+            <Location />
           </div>
         </section>
       </main>
