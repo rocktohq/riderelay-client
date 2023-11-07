@@ -72,14 +72,16 @@ const AddService = () => {
 
     const service = { name, area, description, price, image, provider };
     // console.log(service);
+    // * Add the Service
+    const toastId = toast.loading("Addig service...");
     try {
       const res = await axios.post("/add-new-service", service);
       if (res?.data?.insertedId) {
-        toast.success("Service added successfully!");
+        toast.success("Service added successfully!", { id: toastId });
         form.reset();
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Something went wrong", { id: toastId });
       console.log(error.message);
     }
   };

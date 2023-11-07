@@ -70,15 +70,16 @@ const UpdateService = () => {
     }
 
     //* Now update the Service
+    const toastId = toast.loading("Updateing service...");
     try {
       const res = await axios.put(`/update-service/${id}`, service);
       if (res?.data?.matchedCount > 0) {
-        toast.success("Service updated successfully!");
+        toast.success("Service updated successfully!", { id: toastId });
       } else {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong", { id: toastId });
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Something went wrong", { id: toastId });
       console.log(error.message);
     }
   };

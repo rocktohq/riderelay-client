@@ -35,7 +35,7 @@ const MyServiceCard = ({ myService, refetch }) => {
     <>
       <div className="shadow-md rounded-md p-5">
         <figure>
-          <img src={image} alt={name} />
+          <img className="rounded-md mb-5" src={image} alt={name} />
         </figure>
         <div className="space-y-3">
           <h3 className="text-xl font-medium text-gray-900 dark:text-white">

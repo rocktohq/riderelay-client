@@ -11,10 +11,10 @@ const SCard = ({ service }) => {
     <>
       <Card>
         <div className="flex flex-col md:flex-row gap-5">
-          <figure className="md:h-60 lg:h-96 md:w-72 lg:w-[450px] object-contain">
+          <figure className="md:h-60 lg:h-96 md:w-72 lg:w-1/2">
             <img className="w-full h-full rounded-md" src={image} alt={name} />
           </figure>
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-between lg:w-1/2">
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {name}
             </h5>
@@ -33,10 +33,10 @@ const SCard = ({ service }) => {
                 </span>
               </p>
             </div>
-            <div className="items-end">
-              <p className="font-bold text-gray-800 dark:text-white flex gap2 items-center justify-center my-3">
+            <div className="items-end mt-5">
+              <p className="px-3 py-1 bg-cyan-600 rounded w-fit text-white flex items-center">
                 <BiLocationPlus />
-                <span>{area}</span>
+                &nbsp;{area}
               </p>
               <Link to={`/services/${_id}`}>
                 <Button color="purple" className="rounded w-full mt-5">

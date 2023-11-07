@@ -11,7 +11,7 @@ import BookedServiceCard from "./BookedServiceCard";
 const Schedules = () => {
   const { user } = useAuth();
   const axios = useAxios();
-  const { isPending, isError, error, data } = useQuery({
+  const { isPending, isError, error, data, refetch } = useQuery({
     queryKey: ["schedules"],
     queryFn: async () => {
       const bookings = await axios.get(`/bookings?email=${user.email}`);
@@ -40,31 +40,10 @@ const Schedules = () => {
       <Helmet>
         <title>RideRelay | My Schedules</title>
       </Helmet>
-      <main>
-        {/* {Provied Services} */}
-        <section className="max-w-screen-xl mx-auto px-3 my-10">
-          <Title>Services I Provides</Title>
-          {data?.myServices && data?.myServices.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {data.myServices.map((providedService) => (
-                <ProvidedServiceCard
-                  providedService={providedService}
-                  key={providedService._id}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center my-16">
-              <h3 className="text-3xl font-medium text-gray-900 dark:text-white">
-                You have not provided any services yet!
-              </h3>
-            </div>
-          )}
-        </section>
-
-        {/* Booked Services */}
-        <section className="max-w-screen-xl mx-auto px-3 my-10">
-          <Title>Services I Booked</Title>
+      <main className="bg-gray-50">
+        {/* My Booking */}
+        <section className="max-w-screen-xl mx-auto px-3 py-10">
+          <h2 className="text-3xl font-bold my-5">My Bookings</h2>
           {data?.bookings && data?.bookings.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {data?.bookings.map((service) => (
@@ -75,6 +54,28 @@ const Schedules = () => {
             <div className="text-center my-16">
               <h3 className="text-3xl font-medium text-gray-900 dark:text-white">
                 You have not booked any services yet!
+              </h3>
+            </div>
+          )}
+        </section>
+
+        {/* {Provied Services} */}
+        <section className="max-w-screen-xl mx-auto px-3 my-10">
+          <Title>My Pending Works</Title>
+          {data?.myServices && data?.myServices.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.myServices.map((providedService) => (
+                <ProvidedServiceCard
+                  providedService={providedService}
+                  key={providedService._id}
+                  refetch={refetch}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center my-16">
+              <h3 className="text-3xl font-medium text-gray-900 dark:text-white">
+                You do not any pending services!
               </h3>
             </div>
           )}

@@ -70,7 +70,7 @@ function Nav() {
                 <NavLink to="/addService">Add Service</NavLink>
               </Dropdown.Item>
               <Dropdown.Item icon={AiOutlineSetting}>
-                <NavLink to="/manageService">Manage Service</NavLink>
+                <NavLink to="/manageService">My Services</NavLink>
               </Dropdown.Item>
               <Dropdown.Item icon={AiOutlineSchedule}>
                 <NavLink to="/shcedules">My Shcedules</NavLink>
