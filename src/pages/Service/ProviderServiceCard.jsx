@@ -6,17 +6,17 @@ const ProviderServiceCard = ({ providerService }) => {
 
   return (
     <Link to={`/services/${_id}`}>
-      <div className="p-2 shadow-md rounded-md flex gap-2">
+      <div className="p-2 shadow-md rounded-md flex gap-5">
         <figure className="w-1/2">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full md:h-28 lg:h-32 object-cover rounded-md"
           />
         </figure>
-        <div className="flex flex-col justify-center w-1/2">
+        <div className="flex flex-col justify-between w-1/2">
           <h3 className="font-bold text-lg">{name}</h3>
-          <p>
+          <p className="bg-cyan-400 rounded px-3 py-1 w-fit">
             $<span className="font-medium">{price}</span>
           </p>
           <div className="flex items-center gap-2">

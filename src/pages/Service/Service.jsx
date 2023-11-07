@@ -68,6 +68,7 @@ const Service = () => {
 
     const booking = {
       instruction,
+      status: "Pending",
       date,
       serviceId: _id,
       ...newService,
@@ -159,7 +160,7 @@ const Service = () => {
               More Services from this Provider
             </h3>
             {providerServices.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {providerServices
                   .filter((service) => service._id !== _id)
                   .map((providerService) => (
