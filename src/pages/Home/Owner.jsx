@@ -9,13 +9,13 @@ const Owner = () => {
       </figure>
       <div>
         <p className="text-gray-800 text-lg">
-          Welcome to our carpooling hub, where I, Rockto, lead the charge! With
+         {`"Welcome to our RideRelay Corp, where I, Rockto, lead the charge! With
           a passion for eco-friendly commuting, I have crafted this platform to
           connect like-minded travelers. Join us in our mission for convenient,
           sustainable travel, making every journey memorable and
-          planet-friendly. Lets ride together toward a greener tomorrow!
+          planet-friendly. Lets ride together toward a greener tomorrow!"`}
         </p>
-        <p className="mt-5 mr-2 text-gray-700 text-lg">
+        <p className="mt-5 mr-2 text-gray-700 text-xl">
           -Rockto, Founder, RideRelay Corp.
         </p>
       </div>

@@ -62,7 +62,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/services/${params.id}`),
+          fetch(`http://localhost:5000/api/v1/services/${params.id}`, {
+            credentials: "include",
+          }),
       },
       {
         path: "/shcedules",

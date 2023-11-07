@@ -45,14 +45,14 @@ const Home = () => {
       </Helmet>
       <main className="">
         {/* Banner */}
-        <section className="my-16 py-5 bg-gray-100">
+        <section className="py-2 bg-cyan-50">
           <div className="max-w-screen-xl mx-auto px-3">
             <Banner />
           </div>
         </section>
 
         {/* Services */}
-        <section className="my-16 py-5 bg-gray-100">
+        <section className="py-10 bg-gray-100">
           <div className="max-w-screen-xl mx-auto px-3">
             <Title className="my-5">Our Latest Services</Title>
             {services && (
@@ -72,7 +72,7 @@ const Home = () => {
         </section>
 
         {/* Partners */}
-        <section className="my-16 py-5 border-t">
+        <section className="py-10 border-t">
           <div className="max-w-screen-xl mx-auto px-3">
             <Title className="my-5">Our Partners</Title>
             <Partners />
@@ -80,7 +80,7 @@ const Home = () => {
         </section>
 
         {/* Owner */}
-        <section className="my-16 py-5 bg-cyan-50">
+        <section className="py-10 bg-cyan-50">
           <div className="max-w-screen-xl mx-auto px-3">
             <Title className="my-5">Founder</Title>
             <Owner />
@@ -88,7 +88,7 @@ const Home = () => {
         </section>
 
         {/* FAQ */}
-        <section className="my-16 py-5 border-t">
+        <section className="py-10 border-t">
           <div className="max-w-screen-xl mx-auto px-3">
             <Title className="my-5">Frequently Asked Questions</Title>
             <Faq />
@@ -96,14 +96,14 @@ const Home = () => {
         </section>
 
         {/* Dowload Our App */}
-        <section className="my-16 py-5 bg-gray-100">
+        <section className="py-10 bg-gray-100">
           <div className="max-w-screen-xl mx-auto px-3">
             <Download />
           </div>
         </section>
 
         {/* Contact Us */}
-        <section className="my-16 py-5">
+        <section className="py-10">
           <div className="max-w-screen-xl mx-auto px-3">
             <Title className="my-5">Contact Us</Title>
             <Location />
