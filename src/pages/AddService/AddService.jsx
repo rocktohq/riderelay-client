@@ -97,6 +97,30 @@ const AddService = () => {
               </h3>
               <div>
                 <div className="mb-2 block">
+                  <Label htmlFor="providername" value="Your Name" />
+                </div>
+                <TextInput
+                  id="providername"
+                  name="providername"
+                  type="text"
+                  defaultValue={user?.displayName}
+                  disabled
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="provideremail" value="Your Email" />
+                </div>
+                <TextInput
+                  id="provideremail"
+                  name="provideremail"
+                  type="email"
+                  defaultValue={user?.email}
+                  disabled
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
                   <Label htmlFor="name" value="Service Name" />
                 </div>
                 <TextInput

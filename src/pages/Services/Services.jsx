@@ -11,15 +11,18 @@ import Title from "../../components/shared/Title";
 const Services = () => {
   const axios = useAxios();
   const [showData, setShowData] = useState(6);
+  const [sortOrder, setSortOrder] = useState("");
   const {
     isPending,
     isError,
     error,
     data: services,
   } = useQuery({
-    queryKey: ["services"],
+    queryKey: ["services", sortOrder],
     queryFn: async () => {
-      const res = await axios.get("/services");
+      const res = await axios.get(
+        `/services?sortBy=price&sortOrder=${sortOrder}`
+      );
       return res.data;
     },
   });
@@ -35,7 +38,7 @@ const Services = () => {
   }
 
   // console.log(services);
-
+  console.log(sortOrder);
   return (
     <HelmetProvider>
       <Helmet>
@@ -44,6 +47,18 @@ const Services = () => {
       <main>
         <section className="max-w-screen-xl mx-auto px-3 my-16">
           <Title className="my-5">Our Services</Title>
+          <div className="shadow w-fit px-5 py-2 rounded mb-5">
+            <select
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="border rounded border-gray-500"
+            >
+              <option selected disabled>
+                Sort Service
+              </option>
+              <option value="desc">Price Low to High</option>
+              <option value="asc">Price High to Low</option>
+            </select>
+          </div>
           {services && (
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-5">
               {services.slice(0, showData).map((service) => (

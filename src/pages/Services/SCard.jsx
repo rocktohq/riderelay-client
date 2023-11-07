@@ -11,7 +11,7 @@ const SCard = ({ service }) => {
     <>
       <Card>
         <div className="flex flex-col md:flex-row gap-5">
-          <figure className="md:h-60 lg:h-96">
+          <figure className="md:h-60 lg:h-96 md:w-72 lg:w-[450px] object-contain">
             <img className="w-full h-full rounded-md" src={image} alt={name} />
           </figure>
           <div className="flex flex-col">
