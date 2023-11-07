@@ -6,17 +6,11 @@ const Location = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
       <div>
-        <div className="mb-5">
-          <h3 className="text-2xl font-bold">Our Office</h3>
-          <address>
-            <p>RideRelay Corp,</p>
-            <p>Jamalpur-2000,</p>
-            <p>Dhaka, Bangladesh</p>
-            <p>Phone: +880 171 123 456</p>
-            <p>Email: riderelay@riderelay.co</p>
-          </address>
-        </div>
         <h3 className="text-2xl font-bold">Get in Touch</h3>
+        <p>
+          If you wnat to send any message like suggestions or complaints; just
+          send message bellow. We will review your message shortly
+        </p>
         <div className="mt-5">
           <div className="mb-3">
             <TextInput type="text" placeholder="Your Name" />

@@ -1,9 +1,9 @@
 const Owner = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
-      <figure className="md:h-60 lg:h-96">
+      <figure className="md:h-60 lg:h-96 md:w-60 lg:w-96">
         <img
-          className="w-full h-full rounded-md mx-auto object-contain"
+          className="w-full h-full md:rounded-full mx-auto object-contain md:border-2"
           src="https://i.ibb.co/60qX5Mz/monir.png"
         />
       </figure>
@@ -15,7 +15,9 @@ const Owner = () => {
           sustainable travel, making every journey memorable and
           planet-friendly. Lets ride together toward a greener tomorrow!
         </p>
-        <p className="mt-5 mr-2 text-gray-700 text-lg">-Rockto, Founder, RideRelay Corp.</p>
+        <p className="mt-5 mr-2 text-gray-700 text-lg">
+          -Rockto, Founder, RideRelay Corp.
+        </p>
       </div>
     </div>
   );
