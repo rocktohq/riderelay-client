@@ -23,7 +23,7 @@ const Service = () => {
     isError,
     data: service,
   } = useQuery({
-    queryKey: ["service"],
+    queryKey: ["service", id],
     queryFn: async () => {
       const res = await axios.get(`/services/${id}`);
       const proRes = await axios.get(

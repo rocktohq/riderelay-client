@@ -64,7 +64,7 @@ const Home = () => {
             )}
 
             <Link to="/services">
-              <Button color="purple" outline className="rounded mt-5 mx-auto">
+              <Button color="purple" outline className="mt-5 mx-auto">
                 All Services
               </Button>
             </Link>

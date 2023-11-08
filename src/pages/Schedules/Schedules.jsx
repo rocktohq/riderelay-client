@@ -74,7 +74,7 @@ const Schedules = () => {
           ) : (
             <div className="text-center my-16">
               <h3 className="text-3xl font-medium text-gray-900 dark:text-white">
-                You do not any pending services!
+                You do not have any pending services!
               </h3>
             </div>
           )}
