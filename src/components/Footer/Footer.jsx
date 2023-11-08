@@ -11,7 +11,10 @@ import { Link } from "react-router-dom";
 function Foot() {
   return (
     <footer className="bg-gray-50">
-      <Footer container className="mt-16 max-w-screen-xl mx-auto px-3 bg-gray-50">
+      <Footer
+        container
+        className="mt-16 max-w-screen-xl mx-auto px-3 bg-gray-50 shadow-none"
+      >
         <div className="w-full">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div className="hidden md:block">
@@ -26,7 +29,7 @@ function Foot() {
                 </span>
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+            <div className="hidden md:grid md:grid-cols-3 gap-5">
               <div>
                 <Footer.Title title="about" />
                 <Footer.LinkGroup col>
@@ -53,9 +56,9 @@ function Foot() {
               </div>
             </div>
           </div>
-          <Footer.Divider />
-          <div className="w-full sm:flex sm:items-center sm:justify-between">
-            <Footer.Copyright by="RideRelay" year={2023} />
+          <Footer.Divider className="hidden md:block" />
+          <div className="w-full flex items-center flex-col md:flex-row justify-center md:justify-between">
+            <Footer.Copyright by="RideRelay. All right reserved." year={2023} />
             <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
               <Footer.Icon icon={BsFacebook} />
               <Footer.Icon icon={BsInstagram} />
