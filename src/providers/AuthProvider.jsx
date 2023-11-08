@@ -62,15 +62,19 @@ const AuthProvider = ({ children }) => {
       // * If user is logged in; create a new token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/api/v1/auth/access-token", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            `${import.meta.env.VITE_SITE}/api/v1/auth/access-token`,
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log("Status:", res.data);
           });
       } else {
         axios
-          .post("http://localhost:5000/api/v1/auth/logout", loggedUser, {
+          .post(`${import.meta.env.VITE_SITE}/api/v1/auth/logout`, loggedUser, {
             withCredentials: true,
           })
           .then((err) => {

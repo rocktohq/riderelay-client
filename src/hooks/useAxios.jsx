@@ -2,7 +2,7 @@ import axios from "axios";
 import useAuth from "./useAuth";
 
 const axiosHook = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: `${import.meta.env.VITE_SITE}/api/v1`,
   withCredentials: true,
 });
 
