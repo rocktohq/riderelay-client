@@ -60,7 +60,7 @@ const Services = () => {
             <div className="shadow w-full md:w-fit px-5 py-2 rounded">
               <form onSubmit={handleSearch} className="flex items-center">
                 <TextInput
-                  type="text"
+                  type="search"
                   name="search"
                   placeholder="Search here..."
                   defaultValue={search}
