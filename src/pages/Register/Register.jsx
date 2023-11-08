@@ -147,7 +147,7 @@ const Register = () => {
                 <p>
                   &#187; Already registered?{" "}
                   <Link to="/login">
-                    <span className="text-green-500">Login here.</span>
+                    <span className="text-cyan-600">Login here.</span>
                   </Link>
                 </p>
               </div>

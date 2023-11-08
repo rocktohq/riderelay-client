@@ -57,6 +57,18 @@ const Service = () => {
 
     const instruction = form.instruction.value;
     const date = form.date.value;
+
+    // * Validations
+    // If Date field is empty
+    if (date === "") {
+      return toast.error("Please provide a date!");
+    }
+    // If Instruction field is empty
+    else if (instruction === "") {
+      return toast.error("Please provide an instruction!");
+    }
+    
+    // Client
     const client = {
       email: user?.email,
       name: user?.displayName,

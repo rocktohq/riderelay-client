@@ -16,7 +16,7 @@ const ProviderServiceCard = ({ providerService }) => {
         </figure>
         <div className="flex flex-col justify-between w-1/2">
           <h3 className="font-bold text-lg">{name}</h3>
-          <p className="bg-cyan-400 rounded px-3 py-1 w-fit">
+          <p className="bg-cyan-400 rounded px-1 md:px-3 md:py-1 w-fit">
             $<span className="font-medium">{price}</span>
           </p>
           <div className="flex items-center gap-2">
