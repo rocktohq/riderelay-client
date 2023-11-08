@@ -57,7 +57,7 @@ const MyServiceCard = ({ myService, refetch }) => {
               <AiFillDelete /> Delete
             </Button>
             <Link to={`/updateService/${_id}`}>
-              <Button color="failure" className="rounded">
+              <Button color="purple" className="rounded">
                 <AiFillEdit /> Update
               </Button>
             </Link>

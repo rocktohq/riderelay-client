@@ -36,7 +36,7 @@ const ProvidedServiceCard = ({ providedService, refetch }) => {
   };
 
   return (
-    <div className="p-5 shadow-md rounded-md flex flex-col justify-between">
+    <div className="p-5 shadow-md rounded-md flex flex-col justify-between bg-white">
       <figure>
         <img src={image} className="w-full h-48 object-cover" alt={name} />
       </figure>
