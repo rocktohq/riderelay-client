@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { sliceString } from "../../utils/basicfunctions";
 import { BiCalendar, BiLocationPlus } from "react-icons/bi";
+import { TbStatusChange } from "react-icons/tb";
 
 const BookedServiceCard = ({ bookedService }) => {
-  const { name, image, description, date, area } = bookedService;
+  const { name, image, description, date, area, price, status } = bookedService;
   return (
     <div className="p-5 shadow-md rounded-md flex flex-col justify-between bg-white">
       <figure>
@@ -20,6 +21,15 @@ const BookedServiceCard = ({ bookedService }) => {
           <p className="text-gray-600 dark:text-gray-400 flex items-center">
             <BiCalendar />
             &nbsp;{date}
+          </p>
+        </div>
+        <div className="flex items-center justify-between">
+          <p className="text-gray-600">
+            $<span className="text-xl font-medium">{price}</span>
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 flex items-center">
+            <TbStatusChange />
+            &nbsp;{status}
           </p>
         </div>
       </div>
