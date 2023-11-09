@@ -67,7 +67,7 @@ const Service = () => {
     else if (instruction === "") {
       return toast.error("Please provide an instruction!");
     }
-    
+
     // Client
     const client = {
       email: user?.email,
@@ -166,12 +166,12 @@ const Service = () => {
             </div>
           </div>
         </section>
-        <section className="max-w-screen-xl mx-auto px-3 my-10">
-          <div className="shadow rounded-md p-5">
-            <h3 className="text-2xl font-medium mb-5">
-              More Services from this Provider
-            </h3>
-            {providerServices.length > 0 && (
+        {providerServices.length > 1 && (
+          <section className="max-w-screen-xl mx-auto px-3 my-10">
+            <div className="shadow rounded-md p-5">
+              <h3 className="text-2xl font-medium mb-5">
+                More Services from this Provider
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {providerServices
                   .filter((service) => service._id !== _id)
@@ -182,9 +182,9 @@ const Service = () => {
                     />
                   ))}
               </div>
-            )}
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
         {/* Booking Modal */}
         <Modal show={openModal} size="md" onClose={onCloseModal} popup>
