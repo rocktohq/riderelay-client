@@ -13,7 +13,7 @@ function Foot() {
     <footer className="bg-gray-50">
       <Footer
         container
-        className="mt-16 max-w-screen-xl mx-auto px-3 bg-gray-50 shadow-none"
+        className="max-w-screen-xl mx-auto px-3 bg-gray-50 shadow-none border-t rounded-none"
       >
         <div className="w-full">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
