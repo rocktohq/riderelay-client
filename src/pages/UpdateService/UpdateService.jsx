@@ -3,12 +3,13 @@ import { AiOutlineUpload } from "react-icons/ai";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import toast from "react-hot-toast";
 import useAxios from "../../hooks/useAxios";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 
 const UpdateService = () => {
   const axios = useAxios();
   const { name, image, price, description, area } = useLoaderData();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   //* Hande Update Service
   const handleUpdateService = async (e) => {
@@ -75,6 +76,7 @@ const UpdateService = () => {
       const res = await axios.put(`/update-service/${id}`, service);
       if (res?.data?.matchedCount > 0) {
         toast.success("Service updated successfully!", { id: toastId });
+        navigate("/manageService");
       } else {
         toast.error("Something went wrong", { id: toastId });
       }
