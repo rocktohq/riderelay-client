@@ -58,15 +58,17 @@ const Services = () => {
           <div className="mb-5 flex flex-col md:flex-row md:justify-between items-center gap-5">
             {/* Searching */}
             <div className="shadow w-full md:w-fit px-5 py-2 rounded">
-              <form onSubmit={handleSearch} className="flex items-center">
+              <form onSubmit={handleSearch} className="flex items-center space-x-2">
                 <TextInput
                   type="search"
                   name="search"
                   placeholder="Search here..."
                   defaultValue={search}
                   className="w-full"
-                  rightIcon={BiSearch}
                 />
+                <Button color="purple" type="submit">
+                  <BiSearch className="text-lg"/>
+                </Button>
               </form>
             </div>
 
