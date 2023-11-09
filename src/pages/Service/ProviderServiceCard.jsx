@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import { BiLocationPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const ProviderServiceCard = ({ providerService }) => {
-  const { _id, name, image, price, provider } = providerService;
+  const { _id, name, image, price, area } = providerService;
 
   return (
     <Link to={`/services/${_id}`}>
@@ -14,14 +15,16 @@ const ProviderServiceCard = ({ providerService }) => {
             className="w-full h-full md:h-28 lg:h-32 object-cover rounded-md"
           />
         </figure>
-        <div className="flex flex-col justify-between w-1/2">
+        <div className="flex flex-col gap-2 w-1/2">
           <h3 className="font-bold text-lg">{name}</h3>
           <p className="bg-cyan-400 rounded px-1 md:px-3 md:py-1 w-fit">
             $<span className="font-medium">{price}</span>
           </p>
           <div className="flex items-center gap-2">
-            <img className="h-8 w-8 rounded-full" src={provider.photo} />
-            <p className="text-xs">{provider.name}</p>
+            <p className="flex items-center">
+              <BiLocationPlus />
+              &nbsp;{area}
+            </p>
           </div>
         </div>
       </div>
