@@ -17,11 +17,11 @@ function Foot() {
       >
         <div className="w-full">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center">
               <Link to="/" className="flex flex-col justify-center">
                 <img
                   src="/favicon.png"
-                  className="h-12 md:h-16 w-full"
+                  className="h-12 w-fit mx-auto"
                   alt="RideRelay"
                 />
                 <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">

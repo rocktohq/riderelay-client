@@ -66,15 +66,21 @@ function Nav() {
         {user?.email && (
           <div className="text-lg">
             <Dropdown arrowIcon={true} label="Dashboard" inline>
-              <Dropdown.Item icon={AiOutlineAppstoreAdd}>
-                <NavLink to="/addService">Add Service</NavLink>
-              </Dropdown.Item>
-              <Dropdown.Item icon={AiOutlineSetting}>
-                <NavLink to="/manageService">My Services</NavLink>
-              </Dropdown.Item>
-              <Dropdown.Item icon={AiOutlineSchedule}>
-                <NavLink to="/shcedules">My Shcedules</NavLink>
-              </Dropdown.Item>
+              <NavLink to="/addService">
+                <Dropdown.Item icon={AiOutlineAppstoreAdd}>
+                  Add Service
+                </Dropdown.Item>
+              </NavLink>
+              <NavLink to="/manageService">
+                <Dropdown.Item icon={AiOutlineSetting}>
+                  My Services
+                </Dropdown.Item>
+              </NavLink>
+              <NavLink to="/shcedules">
+                <Dropdown.Item icon={AiOutlineSchedule}>
+                  My Shcedules
+                </Dropdown.Item>
+              </NavLink>
             </Dropdown>
           </div>
         )}

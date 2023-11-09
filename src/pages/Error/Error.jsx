@@ -2,7 +2,6 @@ import Lottie from "lottie-react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import notFound from "../../assets/animations/404.json";
 import Header from "../../components/Header/Header";
-import Foot from "../../components/Footer/Footer";
 import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
@@ -21,12 +20,11 @@ const Error = () => {
           <Link to="/">
             <Button color="purple" className="rounded">
               <AiFillHome />
-              &nbsp;Go Back to Home
+              &nbsp;Back to Home
             </Button>
           </Link>
         </div>
       </div>
-      <Foot />
     </HelmetProvider>
   );
 };

@@ -4,6 +4,9 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxios from "../../hooks/useAxios";
+import Lottie from "lottie-react";
+import addAnimation from "../../assets/animations/add.json";
+
 
 const AddService = () => {
   const { user } = useAuth();
@@ -91,8 +94,9 @@ const AddService = () => {
         <title>RideRelay | Add Service</title>
       </Helmet>
       <main className="bg-gray-100">
-        <div className="max-w-screen-xl mx-auto px-3 py-10">
-          <Card className="max-w-lg w-full mx-auto my-16">
+        <div className="max-w-screen-xl mx-auto px-3 py-5">
+        <div className="flex justify-center gap-10">
+          <Card className="max-w-lg w-full mx-auto">
             <form onSubmit={handleAddService} className="flex flex-col gap-4">
               <h3 className="text-2xl font-bold text-gray-900 text-center">
                 Add Service
@@ -181,6 +185,15 @@ const AddService = () => {
               </Button>
             </form>
           </Card>
+          <div className="hidden md:flex w-full max-w-md">
+              <Lottie
+                animationData={addAnimation}
+                loop={false}
+                className="object-contain"
+              />
+              ;
+            </div>
+          </div>
         </div>
       </main>
     </HelmetProvider>

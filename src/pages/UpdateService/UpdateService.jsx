@@ -3,7 +3,9 @@ import { AiOutlineUpload } from "react-icons/ai";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import toast from "react-hot-toast";
 import useAxios from "../../hooks/useAxios";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import updateAnimation from "../../assets/animations/update.json";
+import Lottie from "lottie-react";
 
 const UpdateService = () => {
   const axios = useAxios();
@@ -91,80 +93,95 @@ const UpdateService = () => {
         <title>RideRelay | Update Service</title>
       </Helmet>
       <main className="bg-gray-100">
-        <div className="max-w-screen-xl mx-auto px-3 py-10">
-          <Card className="max-w-lg w-full mx-auto my-16">
-            <form
-              onSubmit={handleUpdateService}
-              className="flex flex-col gap-4"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 text-center">
-                Update Service
-              </h3>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="name" value="Service Name" />
+        <div className="max-w-screen-xl mx-auto px-3 py-5">
+          <div className="flex justify-center gap-10">
+            <Card className="max-w-lg w-full mx-auto">
+              <form
+                onSubmit={handleUpdateService}
+                className="flex flex-col gap-4"
+              >
+                <div className="">
+                  <Link to="/manageService" className="text-cyan-600 mb-5">
+                    &#171; Back
+                  </Link>
+                  <h3 className="text-2xl font-bold text-gray-900 text-center">
+                    Update Service
+                  </h3>
                 </div>
-                <TextInput
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Service Name"
-                  defaultValue={name}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="image" value="Service Photo URL" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="name" value="Service Name" />
+                  </div>
+                  <TextInput
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Service Name"
+                    defaultValue={name}
+                  />
                 </div>
-                <TextInput
-                  id="image"
-                  name="image"
-                  type="text"
-                  placeholder="Service Photo URL"
-                  defaultValue={image}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="price" value="Price" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="image" value="Service Photo URL" />
+                  </div>
+                  <TextInput
+                    id="image"
+                    name="image"
+                    type="text"
+                    placeholder="Service Photo URL"
+                    defaultValue={image}
+                  />
                 </div>
-                <TextInput
-                  name="price"
-                  id="price"
-                  type="number"
-                  placeholder="Price"
-                  defaultValue={price}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="area" value="Service Area" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="price" value="Price" />
+                  </div>
+                  <TextInput
+                    name="price"
+                    id="price"
+                    type="number"
+                    placeholder="Price"
+                    defaultValue={price}
+                  />
                 </div>
-                <TextInput
-                  id="area"
-                  name="area"
-                  type="text"
-                  placeholder="Service Area"
-                  defaultValue={area}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="description" value="Description" />
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="area" value="Service Area" />
+                  </div>
+                  <TextInput
+                    id="area"
+                    name="area"
+                    type="text"
+                    placeholder="Service Area"
+                    defaultValue={area}
+                  />
                 </div>
-                <Textarea
-                  id="description"
-                  placeholder="Write the description here..."
-                  rows={4}
-                  defaultValue={description}
-                />
-              </div>
-              <Button type="submit" color="purple" className="font-bold">
-                <AiOutlineUpload />
-                &nbsp;<span>Update Service</span>
-              </Button>
-            </form>
-          </Card>
+                <div>
+                  <div className="mb-2 block">
+                    <Label htmlFor="description" value="Description" />
+                  </div>
+                  <Textarea
+                    id="description"
+                    placeholder="Write the description here..."
+                    rows={4}
+                    defaultValue={description}
+                  />
+                </div>
+                <Button type="submit" color="purple" className="font-bold">
+                  <AiOutlineUpload />
+                  &nbsp;<span>Update Service</span>
+                </Button>
+              </form>
+            </Card>
+            <div className="hidden md:flex w-full max-w-md">
+              <Lottie
+                animationData={updateAnimation}
+                loop={false}
+                className="object-contain"
+              />
+              ;
+            </div>
+          </div>
         </div>
       </main>
     </HelmetProvider>
