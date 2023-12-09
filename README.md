@@ -2,21 +2,13 @@
 
 **RideRelay** is a simple _Carpooling and Ridesharing_ web project coded in react with love 💝. User can share rides to save time and money.
 
+**Live Demo:** https://riderelayhq.web.app
+
 ## Technologies
 
-**Front-End:**
-
-- **ReactJS:** We have used ReactJS for the front-end rendering.
-- **TailWindCSS:** TailWindCSS is a utility-first CSS framework.
-- **Flowbite:** Flowbite is a tailwindcss component library
-
-**Back-End:**
-
-- **ExpressJS:** ExpressJS Component Library of NodeJS is used for the Sever.
-
-**Database:**
-
-- **MongoDB:** For database server we have used MongoDB.
+- **ReactJS**  
+- **TailWindCSS** 
+- **Firebase** 
 
 **Other Components:**
 
@@ -40,4 +32,18 @@
 - **Manage Service:** User can update or delete the services from this section where all the services those are added by the logged in user will be shown.
 - **My Scheduals:** In this section logged in user can see the list of services that are booked by the user. And the services that are booked by other users which services were created by that user named my pending works. User can update the status of the services.
 
-**Live Demo:** https://riderelayhq.web.app
+## Setup the Project
+
+#### Clone the Repository
+```
+git clone https://github.com/rocktohq/riderelay-client.git
+```
+#### Install Dependencies
+```
+npm install
+```
+#### Run the Project
+```
+npm run dev
+```
+***Note:*** Update the firebase configuration
