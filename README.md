@@ -2,7 +2,7 @@
 
 **RideRelay** is a simple _Carpooling and Ridesharing_ web project coded in react with love 💝. User can share rides to save time and money.
 
-**Live Demo:** https://riderelayhq.web.app
+<a href="https://riderelayhq.web.app">**Live Demo**</a>
 
 ## Technologies
 
